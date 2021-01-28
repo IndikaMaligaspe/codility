@@ -1,6 +1,6 @@
 /*
  * Find the binary gap of a number
- * 0 <= N <= 20000000
+ * N is an integer within the range [1..2,147,483,647]
  * 10001 should give 3
  * 1000001001 -> should give 5
  * 10000 -> should give 0
