@@ -1,0 +1,11 @@
+function solution(A) {
+	let lmap = new Map();
+
+	lmap = A.map((el, index) => {
+		return { index:el };
+	});
+
+	console.log(lmap);
+}
+
+console.log('2,3,1,5', solution([2,3,1,5]));
