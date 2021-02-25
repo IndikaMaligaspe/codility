@@ -1,0 +1,30 @@
+function solution(A){
+	let n = A.length;
+	let preSum = new Array(n);
+	preSum[0] = Math.abs(A[n - 1]);
+	for(let k=1;k <n; k++) {
+	  preSum[k] = Math.abs(preSum[k -1]) + Math.abs(A[n - (k + 1)]);
+	};
+    let minDif = preSum[n -1];
+	let preTot = A[0];
+	console.log('preSum', preSum);
+	for (let k =1; k < n; k++){
+		let dif = Math.abs(Math.abs(preTot) - Math.abs(preSum[n - (k + 1)]));
+		if (minDif > dif) {
+			minDif = dif;
+		}
+	//	console.log('preTot', preTot, 'Math.abs(preTot) - Math.abs(preSum[n - (k + 1)])',Math.abs(preTot) - Math.abs(preSum[n - (k + 1)]));
+		preTot  = Math.abs(preTot) + Math.abs(A[k]);
+	}
+	return minDif;
+}
+
+
+console.log('[3,1,2,4,3] -> ',solution([3,1,2,4,3])); // 1
+console.log('[3,-1,2,-4,3] -> ',solution([3,-1,2,-4,3]));
+console.log('[-500,1,500,300] -> ',solution([-500,1,500,300]));
+console.log('[3,2] -> ',solution([3,2]));
+console.log('[-2,-3,-4,-1] -> ',solution([-2,-3,-4,-1])); // 0
+console.log('[-1000,1000]' ->, solution([-1000,1000])); //2000
+
+
